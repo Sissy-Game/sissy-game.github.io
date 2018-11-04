@@ -1,0 +1,36 @@
+<html>
+<head><title>Sissy Game 1.0</title>
+<script>var firstplay=0; midurl='./mid0.mp4'; midurla=location.href.split('#'); if ('undefined'!==typeof midurla[1]) { if (midurla[1].substring(0, 7).toLowerCase()=='http://' || midurla[1].substring(0, 8).toLowerCase()=='https://') { midurl=midurla[1].replace(/\'/g, '%27'); } }
+var midcalls=new Array();
+midcalls[0]='sit and keep deep';
+midcalls[1]='circles with your hip';
+midcalls[2]='fuck your pussy';
+midcalls[3]='fuck your pussy FAST';
+var addoldi=0; function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
+if (callx==0 && callxx<2) { callout=0; calltime=Math.floor((Math.random()*5))+5; }
+if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5; }
+if (callx==2 && callxx<4) { callout=2; calltime=Math.floor((Math.random()*15))+5; }
+if (callx==3 && callxx<3) { callout=3; calltime=Math.floor((Math.random()*10))+10; } }
+document.getElementById('midtext').innerHTML=midcalls[callout];
+if (Math.floor((Math.random()*6))<2) { midextraoutextra=''; if (callout==0 || callout==3) { if (Math.floor((Math.random()*2))==0) { midextraoutextra='fast '; } } document.getElementById('midextra').innerHTML=midextraoutextra+'jerk off!'; }
+if (Math.floor((Math.random()*15))==0 && firstplay==1) { document.getElementById('midtext').innerHTML=''; document.getElementById('midextra').innerHTML='short break!'; calltime+=10; }
+document.getElementById('midtime').innerHTML=calltime;
+calltimex=setInterval("if (document.getElementById('midvideo').paused===false) { calltime-=1; if (calltime>0) { document.getElementById('midtime').innerHTML=calltime; } else { clearInterval(calltimex); callstart() } } else { document.getElementById('midtime').innerHTML='<font class=\\\'midplaybutton\\\'>&nbsp;PLAY!&nbsp;<font>'; }", 1000); if (document.getElementById('midvideo').paused) { document.getElementById('midtime').innerHTML='<font class="midplaybutton">&nbsp;PLAY!&nbsp;<font>'; } firstplay=1; }
+</script>
+
+<style>
+@font-face { font-family: AirplanesintheNightSky; src: url(Airplanes-in-the-Night-Sky.ttf) format("truetype"); }
+body { background-color: black; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.midvideo { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; }
+.midmain { position: fixed; width: 100%; text-align: center; text-shadow: 3px 3px 6px rgba(150, 150, 150, 0.5); font-family: AirplanesintheNightSky; color: orchid; cursor: pointer; }
+.midtext { font-size: 800%; }
+.midtime { font-size: 700%; }
+.midextra { font-size: 400%; color: red; }
+.midplaybutton { background-color: #1C1C1C; border-style: dashed; border-radius: 130px; }
+</style>
+</head>
+
+<body onload='document.getElementById("midvideo").src=midurl;'>
+<video controls loop id='midvideo' class='midvideo' oncanplay='callstart();' onerror='document.getElementById("midtime").innerHTML="error on loading video!";'><source src=''></video>
+<div class='midmain' onclick='if (document.getElementById("midvideo").paused) { document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); }'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>loading video...</div><div class='midextra' id='midextra'></div></b></div></body>
+<html>
