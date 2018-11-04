@@ -1,11 +1,12 @@
 <html>
 <head><title>Sissy Game 1.0</title>
-<script>var firstplay=0; midurl='./mid0.mp4'; midurla=location.href.split('#'); if ('undefined'!==typeof midurla[1]) { if (midurla[1].substring(0, 7).toLowerCase()=='http://' || midurla[1].substring(0, 8).toLowerCase()=='https://') { midurl=midurla[1].replace(/\'/g, '%27'); } }
+<script>var firstplay=0; var midurl='https://sissy-game.github.io/example-vid.mp4';
 var midcalls=new Array();
 midcalls[0]='sit and keep deep';
 midcalls[1]='circles with your hip';
 midcalls[2]='fuck your pussy';
 midcalls[3]='fuck your pussy FAST';
+function midurlcheck(midurlvalue) { if (midurlvalue.substring(0, 7).toLowerCase()=='http://' || midurlvalue.substring(0, 8).toLowerCase()=='https://') { midurl=midurlvalue.replace(/\'/g, '%27'); } }
 var addoldi=0; function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
 if (callx==0 && callxx<2) { callout=0; calltime=Math.floor((Math.random()*5))+5; }
 if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5; }
@@ -27,10 +28,12 @@ body { background-color: black; -webkit-touch-callout: none; -webkit-user-select
 .midtime { font-size: 700%; }
 .midextra { font-size: 400%; color: red; }
 .midplaybutton { background-color: #1C1C1C; border-style: dashed; border-radius: 130px; }
+.inputmidlink { font-size: xx-large; width: 50%; }
+.spacera { height: 30px }
 </style>
 </head>
 
-<body onload='document.getElementById("midvideo").src=midurl;'>
-<video controls loop id='midvideo' class='midvideo' oncanplay='callstart();' onerror='document.getElementById("midtime").innerHTML="error on loading video!";'><source src=''></video>
-<div class='midmain' onclick='if (document.getElementById("midvideo").paused) { document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); }'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>loading video...</div><div class='midextra' id='midextra'></div></b></div></body>
+<body onload='document.getElementById("inputmidlink").value=midurl;'>
+<video controls loop id='midvideo' class='midvideo' oncanplay='callstart();' onerror='document.getElementById("midtime").innerHTML="error on loading video!";'></video>
+<div class='midmain' onclick='if (document.getElementById("midvideo").paused) { document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); }'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>change background video?<br><input type='text' id='inputmidlink' class='inputmidlink'><br><div class='spacera'></div><font class='midplaybutton' onclick='midurlcheck(document.getElementById("inputmidlink").value); document.getElementById("midvideo").src=midurl;'>&nbsp;PLAY!&nbsp;<font></div><div class='midextra' id='midextra'></div></b></div></body>
 <html>
