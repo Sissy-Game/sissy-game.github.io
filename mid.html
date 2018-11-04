@@ -6,7 +6,7 @@ midcalls[0]='sit and keep deep';
 midcalls[1]='circles with your hip';
 midcalls[2]='fuck your pussy';
 midcalls[3]='fuck your pussy FAST';
-function midurlcheck(midurlvalue) { if (midurlvalue.substring(0, 7).toLowerCase()=='http://' || midurlvalue.substring(0, 8).toLowerCase()=='https://') { midurl=midurlvalue.replace(/\'/g, '%27'); } }
+function midurlcheck(midurlvalue) { if (midurlvalue.substring(0, 7).toLowerCase()=='http://' || midurlvalue.substring(0, 8).toLowerCase()=='https://' || midurlvalue.substring(0, 7).toLowerCase()=='file://') { midurl=midurlvalue.replace(/\'/g, '%27'); } }
 var addoldi=0; function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
 if (callx==0 && callxx<2) { callout=0; calltime=Math.floor((Math.random()*5))+5; }
 if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5; }
