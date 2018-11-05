@@ -6,7 +6,7 @@ midcalls[0]='keep it deep';
 midcalls[1]='circles with your hip';
 midcalls[2]='fuck your pussy';
 midcalls[3]='fuck your pussy FAST';
-var addoldi=0; function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
+function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
 if (callx==0 && callxx<2) { callout=0; calltime=Math.floor((Math.random()*5))+5; }
 if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5; }
 if (callx==2 && callxx<4) { callout=2; calltime=Math.floor((Math.random()*15))+5; }
@@ -15,13 +15,13 @@ document.getElementById('midtext').innerHTML=midcalls[callout];
 if (Math.floor((Math.random()*6))<2) { midextraoutextra=''; if (callout==0 || callout==3) { if (Math.floor((Math.random()*2))==0) { midextraoutextra='fast '; } } document.getElementById('midextra').innerHTML=midextraoutextra+'jerk off!'; }
 if (Math.floor((Math.random()*15))==0 && firstplay==1) { document.getElementById('midtext').innerHTML=''; document.getElementById('midextra').innerHTML='short break!'; calltime+=10; }
 document.getElementById('midtime').innerHTML=calltime;
-calltimex=setInterval("if (document.getElementById('midvideo').paused===false) { calltime-=1; if (calltime>0) { document.getElementById('midtime').innerHTML=calltime; } else { clearInterval(calltimex); callstart() } } else { document.getElementById('midtime').innerHTML='<font class=\\\'midplaybutton\\\'>&nbsp;PLAY!&nbsp;<font>'; }", 1000); if (document.getElementById('midvideo').paused) { document.getElementById('midtime').innerHTML='<font class="midplaybutton">&nbsp;PLAY!&nbsp;<font>'; } firstplay=1; }
+calltimex=setInterval("if (document.getElementById('midvideo').paused===false) { calltime-=1; if (calltime>0) { document.getElementById('midtime').innerHTML=calltime; } else { clearInterval(calltimex); callstart(); } } else { document.getElementById('midtime').innerHTML='<font class=\\\'midplaybutton\\\'>&nbsp;PLAY!&nbsp;<font>'; }", 1000); if (document.getElementById('midvideo').paused) { document.getElementById('midtime').innerHTML='<font class="midplaybutton">&nbsp;PLAY!&nbsp;<font>'; } }
 </script>
 
 <style>
 @font-face { font-family: AirplanesintheNightSky; src: url(Airplanes-in-the-Night-Sky.ttf) format("truetype"); }
 body { background: url(black-texture.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-.midvideo { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; opacity: 0; }
+.midvideo { position: fixed; bottom: 0px; width: 100%; height: 100%; opacity: 0; }
 .midmain { position: fixed; width: 100%; text-align: center; text-shadow: 3px 3px 6px rgba(150, 150, 150, 0.5); font-family: AirplanesintheNightSky; color: orchid; cursor: pointer; }
 .midtext { font-size: 800%; }
 .midtime { font-size: 700%; }
@@ -29,10 +29,12 @@ body { background: url(black-texture.jpg) no-repeat center center fixed; -webkit
 .midplaybutton { background-color: #1C1C1C; border-style: dashed; border-radius: 130px; }
 .selectvidbutton { background-color: #1C1C1C; border-style: dashed; border-radius: 50px; font-size: x-large; }
 .spacera { height: 15px }
+.mutebutton { position: relative; float: right; margin: 5px 5px 0 0; color: orchid; cursor: pointer; font-size: x-large; }
 </style>
 </head>
 
 <body>
-<video loop id='midvideo' class='midvideo' oncanplay='callstart();' onerror='document.getElementById("midtime").innerHTML="error on loading video!";'></video>
-<div class='midmain' onclick='if (document.getElementById("helptext").innerHTML=="") { if (document.getElementById("midvideo").paused) { document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); } }'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>set background video<br><div class='spacera'></div><input class='selectvidbutton' type="file" accept="video/*" onchange="document.getElementById('helptext').innerHTML=''; document.getElementById('midvideo').style.opacity=1; document.getElementById('midvideo').src=window.URL.createObjectURL(event.srcElement.files[0]);"></div><div class='midextra' id='midextra'></div><h2 id='helptext'>it is a game in which you get 4 variants of calls you have to follow.<br>easy start the game by adding a video via file browser or drag and drop.<br>you can pause the game by click in the middle of window.<br><br>--- calls ---<br>keep it deep - hold the toy deep in your pussy<br>circles with your hip - keep it deep and circle with your hip<br>fuck your pussy - fuck your pussy at a comfortable pace<br>fuck your pussy FAST - fuck your pussy fast and hard<br>short break! - get the toy out and chill</h2></b></div></body>
-<html>
+<video id='midvideo' class='midvideo' oncanplay='callstart();' onerror='document.getElementById("midtime").innerHTML="error on loading video!";' onended="clearInterval(calltimex); document.getElementById('midtime').innerHTML='<font class=\'midplaybutton\'>&nbsp;PLAY!&nbsp;<font>';"></video>
+<div class='midmain' onclick='if (document.getElementById("helptext").innerHTML=="") { if (document.getElementById("midvideo").paused) { firstplay=1; document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); } }'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>set background video<br><div class='spacera'></div><input class='selectvidbutton' type="file" accept="video/*" onchange="document.getElementById('helptext').innerHTML=''; document.getElementById('midvideo').style.opacity=1; document.getElementById('mutebutton').innerHTML='sound off'; document.getElementById('midvideo').src=window.URL.createObjectURL(event.srcElement.files[0]);"></div><div class='midextra' id='midextra'></div><h2 id='helptext'>it is a game in which you get 4 variants of calls you have to follow.<br>easy start the game by adding a video via file browser or drag and drop.<br>you can pause the game by click in the middle of window.<br><br>--- calls ---<br>keep it deep - hold the toy deep in your pussy<br>circles with your hip - keep it deep and circle with your hip<br>fuck your pussy - fuck your pussy at a comfortable pace<br>fuck your pussy FAST - fuck your pussy fast and hard<br>short break! - get the toy out and chill</h2></b></div>
+<span class='mutebutton' onclick='if (document.getElementById("midvideo").muted) { document.getElementById("mutebutton").innerHTML="sound off"; document.getElementById("midvideo").muted=false; } else { document.getElementById("mutebutton").innerHTML="sound on"; document.getElementById("midvideo").muted=true; }'><b><i id='mutebutton'></i></b></span>
+<html></body>
