@@ -1,0 +1,41 @@
+<html>
+<head><title>Sissy Game 1.0</title>
+<script>var firstplay=0;
+var midcalls=new Array();
+midcalls[0]='halte ihn tief in dir';
+midcalls[1]='kreise mit der h&uuml;fte';
+midcalls[2]='fick deine pussy';
+midcalls[3]='fick deine pussy SCHNELLER';
+function callstart() { document.getElementById('midextra').innerHTML=''; callout=-1; while (callout==-1) { callx=Math.floor((Math.random()*4)); callxx=Math.floor((Math.random()*10));
+if (callx==0 && callxx<2) { callout=0; calltime=Math.floor((Math.random()*5))+5; }
+if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5; }
+if (callx==2 && callxx<4) { callout=2; calltime=Math.floor((Math.random()*15))+5; }
+if (callx==3 && callxx<3) { callout=3; calltime=Math.floor((Math.random()*10))+10; } }
+document.getElementById('midtext').innerHTML=midcalls[callout];
+if (Math.floor((Math.random()*6))<2) { midextraoutextra=''; if (callout==0 || callout==2 || callout==3) { if (Math.floor((Math.random()*2))==0 || callout==3) { midextraoutextra='SCHNELLER '; } } document.getElementById('midextra').innerHTML=midextraoutextra+'wichsen!'; }
+if (Math.floor((Math.random()*15))==0 && firstplay==1) { document.getElementById('midtext').innerHTML=''; document.getElementById('midextra').innerHTML='kurze pause!'; calltime+=10; }
+document.getElementById('midtime').innerHTML=calltime;
+calltimex=setInterval("if (document.getElementById('midvideo').paused===false) { calltime-=1; if (calltime>0) { document.getElementById('midtime').innerHTML=calltime; } else { clearInterval(calltimex); callstart(); } } else { document.getElementById('midtime').innerHTML='<font class=\\\'midplaybutton\\\'>&nbsp;LOS!&nbsp;<font>'; }", 1000); if (document.getElementById('midvideo').paused) { document.getElementById('midtime').innerHTML='<font class="midplaybutton">&nbsp;LOS!&nbsp;<font>'; } }
+function pausestartvideo() { if (document.getElementById("helptext").innerHTML=="") { if (document.getElementById("midvideo").paused) { firstplay=1; document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); } } }
+</script>
+
+<style>
+@font-face { font-family: AirplanesintheNightSky; src: url(Airplanes-in-the-Night-Sky.ttf) format("truetype"); }
+body { background: url(black-texture.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.midvideo { position: fixed; bottom: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.midmain { position: fixed; width: 100%; text-align: center; text-shadow: 3px 3px 6px rgba(150, 150, 150, 0.5); font-family: AirplanesintheNightSky; color: orchid; cursor: pointer; }
+.midtext { font-size: 600%; }
+.midtime { font-size: 500%; }
+.midextra { font-size: 300%; color: red; }
+.midplaybutton { background-color: #1C1C1C; border-style: dashed; border-radius: 130px; opacity: 0.8; }
+.selectvidbutton { background-color: #1C1C1C; border-style: dashed; border-radius: 50px; font-size: x-large; }
+.spacera { height: 15px }
+.mutebutton { position: relative; float: right; margin: 5px 5px 0 0; color: orchid; cursor: pointer; font-size: x-large; }
+</style>
+</head>
+
+<body>
+<video id='midvideo' class='midvideo' oncanplay='callstart();' onclick='pausestartvideo()' onerror='document.getElementById("midtime").innerHTML="error on loading video!";' onended="clearInterval(calltimex); document.getElementById('midtime').innerHTML='<font class=\'midplaybutton\'>&nbsp;LOS!&nbsp;<font>';"></video>
+<div class='midmain' onclick='pausestartvideo()'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'>hintergrund video einsetzen<br><div class='spacera'></div><input class='selectvidbutton' type="file" accept="video/*" onchange="document.getElementById('helptext').innerHTML=''; document.getElementById('midvideo').style.opacity=1; document.getElementById('mutebutton').innerHTML='ton aus'; document.getElementById('midvideo').src=window.URL.createObjectURL(event.srcElement.files[0]);"></div><div class='midextra' id='midextra'></div><h2 id='helptext'>in diesem spiel gibt es 5 arten von anweisungen die zu befolgen sind.<br>du kannst das einfahc starten indem du ein video ueber den datei-browser oder drag and drop einf&uuml;gst.<br>starten und anhalten kannst du das laufende spiel indem du auf das laufende video klickst.<br><br>--- anweisungen ---<br>halte ihn tief in dir - halte/dr&uuml;cke dein spielzeug tief in deine pussy<br>kreise mit der h&uuml;fte - kreise mit der h&uuml;fte, w&auml;hrend das spielzeug tief in deiner pussy ist<br>fick deine pussy - fick deine pussy in einem angenehmen tempo<br>fick deine pussy SCHNELLER - fick deine pussy so schnell und hart du kannst<br>kurze pause! - hol das spielzeug aus der pussy und entspanne</h2></b></div>
+<span class='mutebutton' onclick='if (document.getElementById("midvideo").muted) { document.getElementById("mutebutton").innerHTML="ton aus"; document.getElementById("midvideo").muted=false; } else { document.getElementById("mutebutton").innerHTML="ton an"; document.getElementById("midvideo").muted=true; }'><b><i id='mutebutton'></i></b></span>
+</body><html>
