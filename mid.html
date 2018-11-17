@@ -1,6 +1,6 @@
 <html>
 <head><title>Sissy Game 1.0</title>
-<script>jerkoffyes=1; midlang=0; getinfo=window.location.search.substr(1); if (getinfo.length>0) { getinfoa=getinfo.split('&'); getinfoi=0; while (getinfoa[getinfoi]) { if (getinfoa[getinfoi]=='jo0') { jerkoffyes=0; } if (getinfoa[getinfoi]=='de') { midlang=1; } getinfoi+=1; } }
+<script>jerkoffyes=1; midlang=0; pauserand=15; getinfo=window.location.search.substr(1); if (getinfo.length>0) { getinfoa=getinfo.split('&'); getinfoi=0; while (getinfoa[getinfoi]) { if (getinfoa[getinfoi]=='jo0') { jerkoffyes=0; } if (getinfoa[getinfoi]=='pa0') { pauserand=6; } else if (getinfoa[getinfoi]=='pa1') { pauserand=15; } else if (getinfoa[getinfoi]=='pa2') { pauserand=999999; } if (getinfoa[getinfoi]=='de') { midlang=1; } getinfoi+=1; } }
 var firstplay=0; var midcalls=new Array();
 
 if (midlang==0) {
@@ -38,8 +38,8 @@ if (callx==1 && callxx<1) { callout=1; calltime=Math.floor((Math.random()*10))+5
 if (callx==2 && callxx<4) { callout=2; calltime=Math.floor((Math.random()*15))+5; }
 if (callx==3 && callxx<3) { callout=3; calltime=Math.floor((Math.random()*10))+10; } }
 document.getElementById('midtext').innerHTML=midcalls[callout];
-if (Math.floor((Math.random()*6))<2) { midextraoutextra=''; if (callout==0 || callout==2 || callout==3) { if (Math.floor((Math.random()*2))==0 || callout==3) { midextraoutextra=jerkofftexta; } } document.getElementById('midextra').innerHTML=midextraoutextra+jerkofftextb; }
-if (Math.floor((Math.random()*15))==0 && firstplay==1) { document.getElementById('midtext').innerHTML=''; document.getElementById('midextra').innerHTML=htmltextf; calltime+=10; }
+if (Math.floor((Math.random()*5))<2) { midextraoutextra=''; if (callout==0 || callout==2 || callout==3) { if (Math.floor((Math.random()*2))==0 || callout==3) { midextraoutextra=jerkofftexta; } } document.getElementById('midextra').innerHTML=midextraoutextra+jerkofftextb; }
+if (Math.floor((Math.random()*pauserand))==0 && firstplay==1) { document.getElementById('midtext').innerHTML=''; document.getElementById('midextra').innerHTML=htmltextf; calltime+=10; }
 document.getElementById('midtime').innerHTML=calltime;
 calltimex=setInterval("if (document.getElementById('midvideo').paused===false) { calltime-=1; if (calltime>0) { document.getElementById('midtime').innerHTML=calltime; } else { clearInterval(calltimex); callstart(); } } else { document.getElementById('midtime').innerHTML='<font class=\\\'midplaybutton\\\'>&nbsp;'+htmltexta+'&nbsp;<font>'; }", 1000); if (document.getElementById('midvideo').paused) { document.getElementById('midtime').innerHTML='<font class="midplaybutton">&nbsp;'+htmltexta+'&nbsp;<font>'; } }
 function pausestartvideo() { if (document.getElementById("helptext").innerHTML=="") { if (document.getElementById("midvideo").paused) { firstplay=1; document.getElementById("midvideo").play(); } else { document.getElementById("midvideo").pause(); } } }
