@@ -1,6 +1,6 @@
 <html>
 <head><title>Sissy Game 1.0</title>
-<script>jerkoffyes=1; midlang=0; pauserand=15; getinfo=window.location.search.substr(1); if (getinfo.length>0) { getinfoa=getinfo.split('&'); getinfoi=0; while (getinfoa[getinfoi]) { if (getinfoa[getinfoi]=='jo0') { jerkoffyes=0; } if (getinfoa[getinfoi]=='pa0') { pauserand=6; } else if (getinfoa[getinfoi]=='pa1') { pauserand=15; } else if (getinfoa[getinfoi]=='pa2') { pauserand=999999; } if (getinfoa[getinfoi]=='de') { midlang=1; } getinfoi+=1; } }
+<script>jerkoffyes=1; midlang=0; pauserand=15; oncanplayjump=0; getinfo=window.location.search.substr(1); if (getinfo.length>0) { getinfoa=getinfo.split('&'); getinfoi=0; while (getinfoa[getinfoi]) { if (getinfoa[getinfoi]=='jo0') { jerkoffyes=0; } if (getinfoa[getinfoi]=='pa0') { pauserand=6; } else if (getinfoa[getinfoi]=='pa1') { pauserand=15; } else if (getinfoa[getinfoi]=='pa2') { pauserand=999999; } if (getinfoa[getinfoi]=='de') { midlang=1; } getinfoi+=1; } }
 var firstplay=0; var midcalls=new Array();
 
 if (midlang==0) {
@@ -66,8 +66,8 @@ body { background: url(black-texture.jpg) no-repeat center center fixed; -webkit
 </head>
 
 <body onload='document.getElementById("htmltextd").innerHTML=htmltextd; document.getElementById("helptext").innerHTML=htmltexthelp;'>
-<video id='midvideo' class='midvideo' oncanplay='callstart(); setvidfondltext(); document.getElementById("vidtimelineduration").innerHTML=" / "+timefiew(Math.floor(document.getElementById("midvideo").duration)); getvidtimeyes=1;' onclick='pausestartvideo(); ' onerror='document.getElementById("midtime").innerHTML=htmltexte; getvidtimeyes=0;' onended="clearInterval(calltimex); document.getElementById('midtime').innerHTML='<font class=\'midplaybutton\'>&nbsp;'+htmltexta+'&nbsp;<font>'; getvidtimeyes=0;"></video>
+<video id='midvideo' class='midvideo' oncanplay='if (oncanplayjump==0) { callstart(); setvidfondltext(); document.getElementById("vidtimelineduration").innerHTML=" / "+timefiew(Math.floor(document.getElementById("midvideo").duration)); getvidtimeyes=1; } else { oncanplayjump=0; }' onclick='pausestartvideo(); ' onerror='document.getElementById("midtime").innerHTML=htmltexte; getvidtimeyes=0; oncanplayjump=0' onended="clearInterval(calltimex); document.getElementById('midtime').innerHTML='<font class=\'midplaybutton\'>&nbsp;'+htmltexta+'&nbsp;<font>'; getvidtimeyes=0;"></video>
 <div class='midmain' onclick='pausestartvideo();'><b><div class='midtext' id='midtext'></div><div class='midtime' id='midtime'><font id='htmltextd'></font><br><div class='spacera'></div><input class='selectvidbutton' type="file" accept="video/*" onchange="document.getElementById('helptext').innerHTML=''; document.getElementById('midvideo').style.opacity=1; document.getElementById('mutebutton').innerHTML=htmltextb; document.getElementById('midvideo').src=window.URL.createObjectURL(event.srcElement.files[0]);"></div><div class='midextra' id='midextra'></div><h2 id='helptext'></h2></b></div>
 <span class='mutebutton' onclick='if (document.getElementById("midvideo").muted) { document.getElementById("mutebutton").innerHTML=htmltextb; document.getElementById("midvideo").muted=false; } else { document.getElementById("mutebutton").innerHTML=htmltextc; document.getElementById("midvideo").muted=true; }'><b><i id='mutebutton'></i></b></span>
-<span class='vidtimeline'>&nbsp;<i id='vidtimeline'></i><i id='vidtimelineduration'></i><br>&nbsp;<b><font id='vidfontl' onclick='clearInterval(calltimex)'></font></b></span>
-</body></html>
+<span class='vidtimeline'>&nbsp;<i id='vidtimeline'></i><i id='vidtimelineduration'></i><br>&nbsp;<b><font id='vidfontl' onclick='oncanplayjump=1'></font></b></span>
+</body><html>
