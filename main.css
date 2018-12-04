@@ -9,6 +9,6 @@ body { background: url(black-texture.jpg) no-repeat center center fixed; -webkit
 .selectvidbutton { background-color: #1C1C1C; border-style: dashed; border-radius: 50px; font-size: x-large; }
 .spacera { height: 15px }
 .mutebutton { position: relative; float: right; margin: 5px 5px 0 0; color: orchid; cursor: pointer; font-size: x-large; }
-.configbuttonnormal { margin-top: 15px; width: 140px; border-radius: 15px; background-color: rgb(65, 65, 65); cursor: pointer; display: inline-block; }
-.configbuttonselect { margin-top: 15px; width: 140px; border-radius: 15px; background-color: rgb(65, 95, 65); cursor: pointer; display: inline-block; }
-.indexstartbutton { margin-top: 30px; width: 180px; background-color: #1C1C1C; border-style: dashed; border-radius: 130px; opacity: 0.8; }
+.configbuttonnormal { margin-top: 15px; width: 160px; border-radius: 15px; background-color: rgb(65, 65, 65); cursor: pointer; display: inline-block; }
+.configbuttonselect { margin-top: 15px; width: 160px; border-radius: 15px; background-color: rgb(65, 95, 65); cursor: pointer; display: inline-block; }
+.indexstartbutton { margin-top: 30px; width: 220px; background-color: #1C1C1C; border-style: dashed; border-radius: 130px; opacity: 0.8; }
